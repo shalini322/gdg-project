@@ -25,7 +25,7 @@ const About = () => {
               principles of excellence. We believe in cultivating a culture that
               values learning, creativity, and teamwork. Our chapter is founded
               upon the principles of inclusivity and diversity, where every
-              member's unique perspective enriches our collective endeavors. We
+              member&apos;s unique perspective enriches our collective endeavors. We
               are committed to creating an environment where ideas flourish,
               skills are honed diligently, and connections are forged
               enduringly.
