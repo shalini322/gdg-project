@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import MaxWidthWrapper from "./mmw";
-import ImageFrame from "@/components/ui/ImageFrame";
 
 const Hero = () => {
   return (
