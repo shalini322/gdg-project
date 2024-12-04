@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Moon, Sun, Menu, X } from 'lucide-react';
+import { Moon, Sun } from 'lucide-react';
 
 // Configuration for navigation links (memoized to prevent unnecessary re-renders)
 const NAV_LINKS = [
@@ -112,7 +112,7 @@ const Navbar = () => {
   }, [pathname, isDarkMode]);
 
   // Memoized link text classes
-  const getLinkTextClasses = useCallback((href:any) => {
+  const getLinkTextClasses = useCallback((href:string) => {
     return pathname === href 
       ? 'text-white' 
       : isDarkMode 
