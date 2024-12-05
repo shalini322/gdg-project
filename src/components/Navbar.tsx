@@ -8,7 +8,7 @@ import { Moon, Sun } from 'lucide-react';
 // Configuration for navigation links (memoized to prevent unnecessary re-renders)
 const NAV_LINKS = [
   { href: '/', label: 'Home' },
-  { href: '/about', label: 'About Us' },
+  { href: '/about-us', label: 'About Us' },
   { href: '/members', label: 'Members' },
   { href: '/events', label: 'Events' },
   { href: '/testimonials', label: 'Testimonials' },

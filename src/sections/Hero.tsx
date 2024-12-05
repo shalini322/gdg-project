@@ -21,7 +21,7 @@ const Hero = () => {
             </p>
           </div>
           <div className="flex justify-center md:justify-start">
-            <Button className="bg-[#2194F3] dark:bg-[#2194F3] hover:dark:bg-red-400  text-white rounded-sm w-1/4 md:w-1/4 h-10">
+            <Button className="bg-[#2194F3] dark:bg-[#2194F3] hover:dark:bg-red-400 sm:text-md text-white rounded-sm w-1/4 md:w-1/4 h-10">
               Learn More
             </Button>
           </div>
@@ -46,7 +46,6 @@ const Hero = () => {
         </div>
         {/* <ImageFrame src="/img/peoples.png" alt="people" /> */}
       </MaxWidthWrapper>
-     
     </section>
   );
 };

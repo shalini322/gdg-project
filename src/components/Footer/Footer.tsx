@@ -1,19 +1,31 @@
-'use client';
+"use client";
 
-import { Facebook, Linkedin, Instagram } from 'lucide-react';
-import { SocialIcon } from './SocialIcon';
-import { NavLink } from './NavLink';
-import Link from 'next/link';
+import { Facebook, Linkedin, Instagram } from "lucide-react";
+import { SocialIcon } from "./SocialIcon";
+import { NavLink } from "./NavLink";
+import Link from "next/link";
 
 const Footer = () => {
   const socialLinks = [
-    { icon: <Facebook size={20} />, href: "https://www.facebook.com/people/GDSC-HIT/61551446811901/", label: "Facebook" },
-    { icon: <Linkedin size={20} />, href: "https://www.linkedin.com/company/gdgoncampushit/", label: "LinkedIn" },
-    { icon: <Instagram size={20} />, href: "https://www.instagram.com/gdg_hit/", label: "Instagram" },
+    {
+      icon: <Facebook size={20} />,
+      href: "https://www.facebook.com/people/GDSC-HIT/61551446811901/",
+      label: "Facebook",
+    },
+    {
+      icon: <Linkedin size={20} />,
+      href: "https://www.linkedin.com/company/gdgoncampushit/",
+      label: "LinkedIn",
+    },
+    {
+      icon: <Instagram size={20} />,
+      href: "https://www.instagram.com/gdg_hit/",
+      label: "Instagram",
+    },
   ];
 
   const navLinks = [
-    { href: "/about", label: "About" },
+    { href: "/about-us", label: "About" },
     { href: "/members", label: "Members" },
     { href: "/events", label: "Events" },
     { href: "/gallery", label: "Gallery" },
@@ -47,7 +59,7 @@ const Footer = () => {
           </nav>
 
           {/* Contact Button */}
-          <Link 
+          <Link
             href="/contact"
             className="relative px-6 py-2 overflow-hidden rounded-full bg-transparent group mt-8 md:mt-0 md:ml-8 inline-block text-center"
           >
