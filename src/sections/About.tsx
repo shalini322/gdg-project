@@ -1,13 +1,13 @@
 import Image from "next/image";
 import React from "react";
-import MaxWidthWrapper from "./mmw";
+import MaxWidthWrapper from "../hooks/MaxWidthWrapper";
 import { Button } from "@/components/ui/button";
 
 const About = () => {
   return (
     <section id="about-us" className="dark:bg-darkgray">
       <MaxWidthWrapper className="h-full flex flex-col md:flex-row items-center justify-between">
-        <div className="flex mt-0.1">
+        <div className="flex mt-8">
           <div className="w-1/2">
             <Image
               height={100}
