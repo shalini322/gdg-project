@@ -17,7 +17,7 @@ const EventCard: React.FC<EventCardProps> = ({
   location,
 }) => {
   return (
-    <div className="bg-red-500 w-[300px] rounded-3xl p-6 flex flex-col items-center text-center shadow-md">
+    <div className="bg-[#cbade0] w-[300px] rounded-3xl p-6 flex flex-col items-center text-center shadow-md">
       {/* Event Image */}
       <div className="rounded-full overflow-hidden w-[120px] h-[120px] mb-4 border">
         <Image
@@ -30,18 +30,18 @@ const EventCard: React.FC<EventCardProps> = ({
       </div>
 
       {/* Event Date */}
-      <p className="text-sm text-[#6B21A8] font-medium mb-2">{date}</p>
+      <p className="text-sm font-medium mb-2">{date}</p>
 
       {/* Event Type */}
       <p className="text-base font-semibold text-[#4A148C] mb-1">{type}</p>
 
       {/* Event Title */}
-      <h3 className="text-lg font-bold text-[#3F3D56] mb-2 underline">
+      <h3 className="text-lg font-bold mb-2 underline">
         {title}
       </h3>
 
       {/* Event Location */}
-      <p className="text-sm text-[#4A148C]">{location}</p>
+      <p className="text-sm ">{location}</p>
     </div>
   );
 };
