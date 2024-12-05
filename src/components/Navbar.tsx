@@ -9,7 +9,7 @@ import Image from "next/image";
 // Configuration for navigation links (memoized to prevent unnecessary re-renders)
 const NAV_LINKS = [
   { href: "/", label: "Home" },
-  { href: "/about-us", label: "About Us" },
+  { href: "/about", label: "About Us" },
   { href: "/members", label: "Members" },
   { href: "/events", label: "Events" },
   { href: "/testimonials", label: "Testimonials" },
@@ -160,12 +160,13 @@ const Navbar = () => {
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center">
               <Image
-                height={100}
-                width={100}
+                height={170}
+                width={180}
                 src="/assets/logo-gdg.png"
                 alt="Google Developer Groups"
-                className="h-8 w-auto transition-all duration-300 
+                className="h-auto w-auto transition-all duration-300 
                   dark:grayscale dark:hover:grayscale-0"
+                priority
               />
             </Link>
           </div>
