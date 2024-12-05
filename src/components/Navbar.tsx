@@ -9,11 +9,11 @@ import Image from "next/image";
 // Configuration for navigation links (memoized to prevent unnecessary re-renders)
 const NAV_LINKS = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About Us" },
-  { href: "/members", label: "Members" },
-  { href: "/events", label: "Events" },
-  { href: "/testimonials", label: "Testimonials" },
-  { href: "/contact", label: "Contact us" },
+  { href: "#about", label: "About Us" },
+  { href: "#members", label: "Members" },
+  { href: "#events", label: "Events" },
+  { href: "#testimonials", label: "Testimonials" },
+  { href: "#contact", label: "Contact us" },
 ];
 
 const Navbar = () => {
