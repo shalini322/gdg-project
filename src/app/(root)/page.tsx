@@ -6,11 +6,9 @@ import React from "react";
 const LandingPage = () => {
   return (
     <div>
-      <div>
-        <Hero />
-        <About />
-        <Members />
-      </div>
+      <Hero />
+      <About />
+      <Members />
     </div>
   );
 };
