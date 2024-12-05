@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 interface FrameProps {
@@ -11,7 +12,9 @@ const ImageFrame: React.FC<FrameProps> = ({ src, alt, color = "#00FF00" }) => {
     <div
       className={`relative w-64 h-64 border-8 border-b-[40px] border-${color} rounded-lg`}
     >
-      <img
+      <Image
+        height={100}
+        width={100}
         src={src}
         alt={alt}
         className="w-full h-full object-cover rounded-lg"
