@@ -1,12 +1,18 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import clsx from "classnames";
+import { gsap } from "gsap";
 
 interface ImageFrameProps extends React.HTMLAttributes<HTMLDivElement> {
   imageSrc: string;
   name: string;
   role: string;
   borderColor?: string;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
+  onClick?: () => void;
 }
 
 const ImageFrame: React.FC<ImageFrameProps> = ({
@@ -14,13 +20,90 @@ const ImageFrame: React.FC<ImageFrameProps> = ({
   name,
   role,
   borderColor = "#79F77D",
+  onMouseEnter,
+  onMouseLeave,
+  onClick,
   ...rest
 }) => {
+  const frameRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const frame = frameRef.current;
+    if (!frame) return;
+
+    // GSAP hover animation setup
+    const tl = gsap.timeline({ paused: true });
+    
+    tl.to(frame, {
+      scale: 1.05,
+      boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1)",
+      duration: 0.3,
+      ease: "power2.out"
+    });
+
+    // Hover event handlers
+    const handleMouseEnter = () => {
+      tl.play();
+      
+      const otherFrames = document.querySelectorAll('.image-frame:not(:hover)');
+      gsap.to(otherFrames, {
+        filter: 'blur(3px) brightness(0.7)',
+        duration: 0.3,
+        ease: "power2.out"
+      });
+
+      onMouseEnter?.();
+    };
+
+    const handleMouseLeave = () => {
+      tl.reverse();
+      
+      const otherFrames = document.querySelectorAll('.image-frame');
+      gsap.to(otherFrames, {
+        filter: 'blur(0px) brightness(1)',
+        duration: 0.3,
+        ease: "power2.out"
+      });
+
+      onMouseLeave?.();
+    };
+
+    const handleClick = (e: MouseEvent) => {
+      e.preventDefault();
+      onClick?.();
+    };
+
+    // Add event listeners
+    frame.addEventListener('mouseenter', handleMouseEnter);
+    frame.addEventListener('mouseleave', handleMouseLeave);
+    frame.addEventListener('click', handleClick);
+
+    // Cleanup
+    return () => {
+      frame.removeEventListener('mouseenter', handleMouseEnter);
+      frame.removeEventListener('mouseleave', handleMouseLeave);
+      frame.removeEventListener('click', handleClick);
+    };
+  }, [onMouseEnter, onMouseLeave, onClick]);
+
+  function getContrastYIQ(hexcolor: string) {
+    hexcolor = hexcolor.replace("#", "");
+    
+    const r = parseInt(hexcolor.substr(0, 2), 16);
+    const g = parseInt(hexcolor.substr(2, 2), 16);
+    const b = parseInt(hexcolor.substr(4, 2), 16);
+    
+    const yiq = (r * 299 + g * 587 + b * 114) / 1000;
+    
+    return yiq >= 128 ? "black" : "white";
+  }
+
   return (
     <div
+      ref={frameRef}
       {...rest}
       className={clsx(
-        "relative flex flex-col items-center border-8 w-52 border-x-[10px]",
+        "image-frame relative flex flex-col items-center border-8 w-52 border-x-[10px] transition-transform duration-300 cursor-pointer",
         rest.className
       )}
       style={{
@@ -38,10 +121,13 @@ const ImageFrame: React.FC<ImageFrameProps> = ({
           height={200}
         />
       </div>
-
+      
       {/* Text */}
       <div
-        className={clsx("text-center text-black px-4 w-full h-24 pt-4", rest.className)}
+        className={clsx(
+          "text-center text-black px-4 w-full h-24 pt-4", 
+          rest.className
+        )}
         style={{
           backgroundColor: borderColor,
           color: getContrastYIQ(borderColor),
@@ -53,19 +139,5 @@ const ImageFrame: React.FC<ImageFrameProps> = ({
     </div>
   );
 };
-
-function getContrastYIQ(hexcolor: string) {
-  hexcolor = hexcolor.replace("#", "");
-
-  const r = parseInt(hexcolor.substring(0, 2), 16);
-  const g = parseInt(hexcolor.substring(2, 2), 16);
-  const b = parseInt(hexcolor.substring(4, 2), 16);
-
-  // Calculate YIQ luminance
-  const yiq = (r * 299 + g * 587 + b * 114) / 1000;
-
-  // Return black for light background, white for dark background
-  return yiq >= 128 ? "black" : "white";
-}
 
 export default ImageFrame;
