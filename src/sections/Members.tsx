@@ -98,6 +98,30 @@ const Members: React.FC = () => {
         twitter: "https://twitter.com/chinmayverma",
       },
     },
+    {
+      role: "WEB DEVELOPMENT LEAD",
+      name: "Deepak Kumar",
+      borderColor: "#79F77D",
+      imageSrc: "/img/webdev.png",
+      bio: "Web Development Lead with expertise in modern frontend frameworks and responsive design.",
+      social: {
+        github: "https://github.com/deepakkumar",
+        linkedin: "https://linkedin.com/in/deepakkumar",
+        twitter: "https://twitter.com/deepakkumar",
+      },
+    },
+    {
+      role: "GDSC LEAD",
+      name: "Rishabh Kumar",
+      borderColor: "#7E9EFF",
+      imageSrc: "/img/lead.png",
+      bio: "Google Developer Student Clubs Lead, passionate about building tech communities.",
+      social: {
+        github: "https://github.com/rishabhkumar",
+        linkedin: "https://linkedin.com/in/rishabhkumar",
+        twitter: "https://twitter.com/rishabhkumar",
+      },
+    },
   ];
 
   const handleMemberClick = (member: Member) => {
@@ -118,7 +142,7 @@ const Members: React.FC = () => {
         {/* Members Grid */}
         <div
           ref={membersContainerRef}
-          className="grid grid-cols-1 md:grid-cols-3 justify-center items-center gap-x-10 gap-y-10"
+          className="grid grid-cols-1 md:grid-cols-4 justify-center items-center gap-x-10 gap-y-10"
         >
           {members.map((member, index) => (
             <ImageFrame
