@@ -164,8 +164,7 @@ const Navbar = () => {
                 width={180}
                 src="/assets/logo-gdg.png"
                 alt="Google Developer Groups"
-                className="h-auto w-auto transition-all duration-300 
-                  dark:grayscale dark:hover:grayscale-0"
+                className="h-auto w-auto "
                 priority
               />
             </Link>
