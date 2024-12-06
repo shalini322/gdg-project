@@ -89,8 +89,8 @@ const Navbar = () => {
   const navbarBackgroundClasses = useMemo(() => {
     if (isScrolled) {
       return isDarkMode
-        ? "bg-black/90 backdrop-blur-xl"
-        : "bg-white/80 backdrop-blur-xl";
+        ? "bg-black/60 backdrop-blur-xl"
+        : "bg-white/70 backdrop-blur-xl";
     }
     return isDarkMode
       ? "bg-black"
