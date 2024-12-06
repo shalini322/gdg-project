@@ -1,16 +1,37 @@
-import React, { ReactNode } from "react";
+"use client";
 
-type Props = {
+import React, { ReactNode } from "react";
+import clsx from "classnames";
+
+interface MaxWidthWrapperProps {
   children: ReactNode;
   className?: string;
-};
+  size?: "default" | "small" | "medium" | "large";
+}
 
-const MaxWidthWrapper = ({ children, className = "" }: Props) => {
+const MaxWidthWrapper: React.FC<MaxWidthWrapperProps> = ({ 
+  children, 
+  className = "",
+  size = "default" 
+}) => {
+  const maxWidthClass = {
+    small: "max-w-5xl",
+    default: "max-w-7xl",
+    medium: "max-w-8xl",
+    large: "max-w-[1920px]"
+  }[size];
+
   return (
-    <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ${className}`}>
+    <div
+      className={clsx(
+        maxWidthClass,
+        "mx-auto w-full px-4 sm:px-6 lg:px-8",
+        className
+      )}
+    >
       {children}
     </div>
-  );    
+  );
 };
 
 export default MaxWidthWrapper;
