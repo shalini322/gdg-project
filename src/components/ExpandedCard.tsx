@@ -32,8 +32,8 @@ const ExpandedCard: React.FC<ExpandedCardProps> = ({ member, onClose, isOpen }) 
   const shineRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
-    let nameAnimation: gsap.core.Timeline;
-    let socialAnimation: gsap.core.Timeline;
+    let nameAnimation: gsap.core.Tween | null = null;
+    let socialAnimation: gsap.core.Tween | null = null;
 
     if (isOpen && nameRef.current && socialContainerRef.current) {
       // Create main timeline
@@ -41,9 +41,10 @@ const ExpandedCard: React.FC<ExpandedCardProps> = ({ member, onClose, isOpen }) 
         defaults: { ease: "power3.out" }
       });
 
-      // Overlay animation
+      // Overlay and blur animation
       tl.to(overlayRef.current, {
         opacity: 1,
+        backdropFilter: 'blur(10px)',
         duration: 0.4
       });
 
@@ -93,44 +94,25 @@ const ExpandedCard: React.FC<ExpandedCardProps> = ({ member, onClose, isOpen }) 
         "-=0.6"
       );
 
-      // Name shine effect animation
-      nameAnimation = gsap.timeline({ repeat: -1 });
-      nameAnimation.fromTo(shineRef.current,
-        {
-          x: "-100%",
-          opacity: 0
-        },
-        {
-          x: "200%",
-          opacity: 0.8,
-          duration: 2,
-          ease: "power2.inOut"
-        }
-      );
-
-      // Social icons animation
-      const socialIcons = socialContainerRef.current.children;
-      socialAnimation = gsap.timeline({ repeat: -1 });
-      
-      Array.from(socialIcons).forEach((icon, index) => {
-        socialAnimation.fromTo(icon,
-          {
-            y: 0,
-            scale: 1
-          },
-          {
-            y: -10,
-            scale: 1.1,
-            duration: 0.4,
-            ease: "power2.out",
-            yoyo: true,
-            repeat: 1
-          },
-          index * 0.2
-        );
+      // Name shine effect - single animation
+      nameAnimation = gsap.to(shineRef.current, {
+        x: "200%",
+        opacity: 0.5,
+        duration: 1.5,
+        ease: "power2.inOut"
       });
 
-      socialAnimation.play();
+      // Social icons animation - single bounce
+      const socialIcons = Array.from(socialContainerRef.current.children);
+      socialAnimation = gsap.to(socialIcons, {
+        y: -10,
+        scale: 1.1,
+        duration: 0.4,
+        stagger: 0.1,
+        yoyo: true,
+        repeat: 1,
+        ease: "power2.out"
+      });
     }
 
     return () => {
@@ -177,6 +159,7 @@ const ExpandedCard: React.FC<ExpandedCardProps> = ({ member, onClose, isOpen }) 
 
     tl.to(overlayRef.current, {
       opacity: 0,
+      backdropFilter: 'blur(0px)',
       duration: 0.3
     }, "-=0.3");
   };
@@ -186,7 +169,7 @@ const ExpandedCard: React.FC<ExpandedCardProps> = ({ member, onClose, isOpen }) 
   return (
     <div 
       ref={overlayRef}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md opacity-0"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-lg opacity-0"
       onClick={handleClose}
     >
       <div 
@@ -225,7 +208,7 @@ const ExpandedCard: React.FC<ExpandedCardProps> = ({ member, onClose, isOpen }) 
               </h2>
               <div 
                 ref={shineRef}
-                className="absolute inset-0 w-1/4 bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-12"
+                className="absolute inset-0 w-1/4 bg-gradient-to-r from-transparent via-white/30 dark:via-white/10 to-transparent skew-x-12 opacity-0"
               />
             </div>
             
