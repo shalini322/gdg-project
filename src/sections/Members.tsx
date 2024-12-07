@@ -6,7 +6,6 @@ import ExpandedCard from "@/components/ExpandedCard";
 import { Button } from "@/components/ui/button";
 import MaxWidthWrapper from "@/hooks/MaxWidthWrapper";
 import Link from "next/link";
-import { link } from "fs";
 
 interface Member {
   role: string;
