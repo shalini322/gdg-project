@@ -5,6 +5,7 @@ import ImageFrame from "@/components/ImageFrame";
 import ExpandedCard from "@/components/ExpandedCard";
 import { Button } from "@/components/ui/button";
 import MaxWidthWrapper from "@/hooks/MaxWidthWrapper";
+import Link from "next/link";
 
 interface Member {
   role: string;
@@ -159,9 +160,11 @@ const Members: React.FC = () => {
 
         {/* Show More Button */}
         <div className="flex justify-center my-10">
-          <Button className="bg-[#2194F3] dark:bg-[#2194F3] hover:dark:bg-red-400 sm:text-md max-md:px-16 text-white rounded-sm w-1/4 md:w-40 h-10">
-            Show More
-          </Button>
+        <Button className="bg-[#2194F3] dark:bg-[#2194F3] hover:dark:bg-red-400 sm:text-md max-md:px-16 text-white rounded-sm w-1/4 md:w-40 h-10">
+  <Link href="/members" className="w-full h-full flex items-center justify-center">
+    Show More
+  </Link>
+</Button>
         </div>
 
         {/* Expanded Card */}
