@@ -6,10 +6,6 @@ import ExpandedCard from "@/components/ExpandedCard";
 import { Button } from "@/components/ui/button";
 import MaxWidthWrapper from "@/hooks/MaxWidthWrapper";
 import Link from "next/link";
-<<<<<<< HEAD
-
-=======
->>>>>>> 62ffd53caf3a6ae44fde284e9bf501adcf324b19
 
 interface Member {
   role: string;
