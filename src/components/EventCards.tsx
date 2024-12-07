@@ -7,6 +7,7 @@ interface EventCardProps {
   type: string;
   title: string;
   location: string;
+  hideLocation?: boolean;
 }
 
 const EventCard: React.FC<EventCardProps> = ({
@@ -15,9 +16,12 @@ const EventCard: React.FC<EventCardProps> = ({
   type,
   title,
   location,
+  hideLocation = false,
 }) => {
   return (
-    <div className="bg-[#cbade0] w-[300px] rounded-3xl p-6 flex flex-col items-center text-center shadow-md">
+    <div
+      className={`bg-[#cbade0] dark:bg-[#382347] w-72 h-96 rounded-3xl p-6 flex flex-col items-center text-center shadow-md drop-shadow-lg ring-2 ring-[#d3c4f3] transition duration-300 ease-in-out hover:shadow-xl hover:ring-[#9b7fdc]`}
+    >
       {/* Event Image */}
       <div className="rounded-full overflow-hidden w-[120px] h-[120px] mb-4 border">
         <Image
@@ -33,15 +37,13 @@ const EventCard: React.FC<EventCardProps> = ({
       <p className="text-sm font-medium mb-2">{date}</p>
 
       {/* Event Type */}
-      <p className="text-base font-semibold text-[#4A148C] mb-1">{type}</p>
+      <p className="text-base font-semibold text-[#4A148C] dark:text-[#b97ee7] mb-1">{type}</p>
 
       {/* Event Title */}
-      <h3 className="text-lg font-bold mb-2 underline">
-        {title}
-      </h3>
+      <h3 className="text-lg font-bold mb-2 underline">{title}</h3>
 
-      {/* Event Location */}
-      <p className="text-sm ">{location}</p>
+      {/* Event Location (conditionally rendered) */}
+      {!hideLocation && <p className="text-sm">{location}</p>}
     </div>
   );
 };

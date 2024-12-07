@@ -11,7 +11,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        darkgray: '#242424', 
+        darkgray: '#000000', 
 		headdark:'#4CAF4F',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
