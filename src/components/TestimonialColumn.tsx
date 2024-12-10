@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useRef } from "react";
-import { motion } from "motion/react";
+import React, { useRef, useEffect } from "react";
+import { gsap } from "gsap";
 import type { Testimonial } from "@/data/testimonials";
 import { TestimonialCard } from "./TestimonialCard";
 
@@ -16,23 +16,53 @@ export const TestimonialColumn: React.FC<TestimonialColumnProps> = ({
   columnIndex,
   isMobile,
 }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const columnRef = useRef<HTMLDivElement>(null);
 
-  // Calculate speed based on column index and mobile status
-  const speed = isMobile
-    ? 20
-    : columnIndex === 0
-    ? 15
-    : columnIndex === 1
-    ? 18
-    : 13;
+  useEffect(() => {
+    const column = columnRef.current;
+    if (!column) return;
 
-  // Determine if animation should be applied
-  const shouldAnimate = !isMobile || columnIndex === 0;
+    const setupAnimation = () => {
+      // Double the cards for smooth infinite scroll
+      [...Array(2)].forEach(() => {
+        testimonials.forEach(() => {
+          const clone = column.children[0].cloneNode(true) as HTMLElement;
+          column.appendChild(clone);
+        });
+      });
+
+      const speed = isMobile
+        ? 20
+        : columnIndex === 0
+        ? 15
+        : columnIndex === 1
+        ? 18
+        : 13;
+
+      const totalHeight =
+        column.children[0].getBoundingClientRect().height * testimonials.length;
+
+      gsap.to(column, {
+        y: -totalHeight,
+        duration: speed,
+        ease: "none",
+        repeat: -1,
+        repeatRefresh: true,
+      });
+    };
+
+    if (!isMobile || columnIndex === 0) {
+      setupAnimation();
+    }
+
+    return () => {
+      gsap.killTweensOf(column);
+    };
+  }, [columnIndex, isMobile, testimonials]);
 
   return (
     <div
-      ref={containerRef}
+      ref={columnRef}
       className={`
         flex 
         flex-col 
@@ -41,40 +71,12 @@ export const TestimonialColumn: React.FC<TestimonialColumnProps> = ({
         ${columnIndex > 0 ? "hidden md:flex" : "flex"}
       `}
     >
-      {shouldAnimate ? (
-        <motion.div
-          animate={{
-            y: `-100%`, 
-          }}
-          transition={{
-            duration: speed,
-            ease: "linear",
-            repeat: Infinity,
-            repeatType: "loop",
-          }}
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "1rem", 
-          }}
-        >
-          {[...testimonials, ...testimonials, ...testimonials].map(
-            (testimonial, index) => (
-              <TestimonialCard
-                key={`${testimonial.id}-${index}`}
-                testimonial={testimonial}
-              />
-            )
-          )}
-        </motion.div>
-      ) : (
-        testimonials.map((testimonial, index) => (
-          <TestimonialCard
-            key={`${testimonial.id}-${index}`}
-            testimonial={testimonial}
-          />
-        ))
-      )}
+      {testimonials.map((testimonial, index) => (
+        <TestimonialCard
+          key={`${testimonial.id}-${index}`}
+          testimonial={testimonial}
+        />
+      ))}
     </div>
   );
 };
