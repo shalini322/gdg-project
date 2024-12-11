@@ -1,15 +1,19 @@
 "use client";
 
-import React from 'react';
-import type { Testimonial } from '@/data/testimonials';
+import React from "react";
+import type { Testimonial } from "@/data/testimonials";
+import Image from "next/image";
 
 interface TestimonialCardProps {
   testimonial: Testimonial;
   className?: string;
 }
 
-export const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial, className = '' }) => (
-  <div 
+export const TestimonialCard: React.FC<TestimonialCardProps> = ({
+  testimonial,
+  className = "",
+}) => (
+  <div
     className={`
       ${className} 
       testimonial-card 
@@ -38,9 +42,11 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial, c
     `}
   >
     <div className="flex items-center mb-3 md:mb-4">
-      <img 
-        src={testimonial.avatar} 
-        alt={testimonial.name} 
+      <Image
+        height={100}
+        width={100}
+        src={testimonial.avatar}
+        alt={testimonial.name}
         className="w-10 h-10 md:w-12 md:h-12 rounded-full mr-3 md:mr-4 flex-shrink-0"
       />
       <div>
