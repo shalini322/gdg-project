@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { LayoutDashboard, Users, Calendar, Award, Settings } from 'lucide-react';
-import { DashboardSection } from '@/app/AdminDashboard/page';
+import { DashboardSection } from '@/app/AdminDashboard/components/AdminDashboard';
 
 interface DashboardCardProps {
   icon: React.ReactNode;

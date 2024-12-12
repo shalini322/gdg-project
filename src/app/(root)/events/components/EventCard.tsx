@@ -2,7 +2,7 @@
 import React, { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { EventType, EventCategory } from '@/app/(root)/events/types';
-import { Calendar, MapPin, Link, ArrowRight } from 'lucide-react';
+import { Calendar, MapPin,  ArrowRight } from 'lucide-react';
 
 interface EventCardProps {
   event: EventType;

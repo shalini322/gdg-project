@@ -1,6 +1,6 @@
 "use client";
 import React from 'react';
-import { DashboardSection, DASHBOARD_NAV_ITEMS } from '@/app/AdminDashboard/page';
+import { DashboardSection, DASHBOARD_NAV_ITEMS } from '@/app/AdminDashboard/components/AdminDashboard';
 
 interface SidebarProps {
   activeSection: DashboardSection;
@@ -13,7 +13,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   activeSection, 
   setActiveSection, 
   isSidebarOpen,
-  setIsSidebarOpen
+ 
 }) => {
   return (
     <aside 
