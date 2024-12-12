@@ -10,6 +10,15 @@ export default {
   ],
   theme: {
     extend: {
+
+      backgroundImage: {
+        'grid-small-black': 'url("data:image/svg+xml,...")', // Add your grid pattern SVG
+        'grid-small-white': 'url("data:image/svg+xml,...")', // Add your grid pattern SVG
+        'dot-black': 'url("data:image/svg+xml,...")', // Add your dot pattern SVG
+        'dot-white': 'url("data:image/svg+xml,...")',
+      },
+
+
       colors: {
         darkgray: '#000000', 
 		headdark:'#4CAF4F',
