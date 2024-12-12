@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
-import EventCard from '@/app/events/components/EventCard';
-import { EventType, EventCategory } from '@/app/events/types';
+import EventCard from '@/app/(root)/events/components/EventCard';
+import { EventType, EventCategory } from '@/app/(root)/events/types';
 import { gsap } from 'gsap';
 
 interface EventSectionProps {
