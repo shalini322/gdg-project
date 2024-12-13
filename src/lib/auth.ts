@@ -4,6 +4,14 @@ import GoogleProvider from "next-auth/providers/google";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { db } from "./db";
 import { compare } from "bcrypt";
+import { JWT } from "next-auth/jwt";
+
+// Define a custom interface for the token to provide type safety
+interface CustomToken extends JWT {
+  id: string;
+  name?: string | null;
+  email?: string | null;
+}
 
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(db),
@@ -26,15 +34,12 @@ export const authOptions: NextAuthOptions = {
         if (!credentials?.email || !credentials.password) {
           throw new Error("Invalid email or password.");
         }
-
         const user = await db.user.findUnique({
           where: { email: credentials.email },
         });
-
         if (!user || !(await compare(credentials.password, user.password))) {
           throw new Error("Invalid email or password.");
         }
-
         return {
           id: user.id,
           name: user.username,
@@ -46,14 +51,14 @@ export const authOptions: NextAuthOptions = {
   callbacks: {
     async jwt({ token, user }) {
       if (user) {
-        token.id = user.id;
-        token.name = user.name;
-        token.email = user.email;
+        (token as CustomToken).id = user.id;
+        (token as CustomToken).name = user.name;
+        (token as CustomToken).email = user.email;
       }
       return token;
     },
     async session({ session, token }) {
-      session.user = token as any;
+      session.user = token as CustomToken;
       return session;
     },
   },
