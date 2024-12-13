@@ -32,20 +32,43 @@ export const memberCategories = {
           }
         },
         {
-          role: "FRONTEND DEVELOPER",
-          name: "Raj Patel",
+          role: "Backend Web Developer",
+          name: "Rahul Kumar",
           year: 2022,
           borderColor: "#79F77D",
-          imageSrc: "/img/webdev.png",
-          bio: "Passionate frontend developer specializing in React and Next.js."
+          imageSrc: "/img/webdev2.png",
+          bio: "Passionate frontend developer specializing in React and Next.js.",
+          social: {
+            github: "https://github.com/deepakkumar",
+            linkedin: "https://linkedin.com/in/deepakkumar",
+            twitter: "https://twitter.com/deepakkumar"
+          }
         },
         {
-          role: "BACKEND DEVELOPER",
-          name: "Neha Gupta",
-          year: 2021,
+          role: "WEB DEVELOPER",
+          name: "Ishan Tiwari",
+          year: 2023,
           borderColor: "#79F77D",
-          imageSrc: "/img/webdev.png",
-          bio: "Experienced backend developer with expertise in Node.js and MongoDB."
+          imageSrc: "/img/webdev3.png",
+          bio: "Experienced backend developer with expertise in Node.js and MongoDB.",
+          social: {
+            github: "https://github.com/deepakkumar",
+            linkedin: "https://linkedin.com/in/deepakkumar",
+            twitter: "https://twitter.com/deepakkumar"
+          }
+        },
+        {
+          role: "WEB DEVELOPER",
+          name: "Abhishek Kumar",
+          year: 2024,
+          borderColor: "#79F77D",
+          imageSrc: "/img/webdev4.png",
+          bio: "Frontend Web Developer with expertise in React JS and animation Library",
+          social: {
+            github: "https://github.com/misanthropic-codes",
+            linkedin: "https://linkedin.com/in/abhishek-codes",
+            twitter: "https://twitter.com/misanthropic_12"
+          }
         }
       ]
     },
@@ -60,33 +83,42 @@ export const memberCategories = {
           imageSrc: "/img/applead.png",
           bio: "Mobile App Development Lead specializing in cross-platform development.",
           social: {
-            github: "https://github.com/chinmayverma",
-            linkedin: "https://linkedin.com/in/chinmayverma"
+            github: "https://github.com/Chinmayverma1602",
+            linkedin: "https://www.linkedin.com/in/chinmay-verma-90353921b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
           }
         },
         {
-          role: "MOBILE DEVELOPER",
-          name: "Ankit Singh",
-          year: 2021,
+          role: "App Developer",
+          name: "Roshan Singh",
+          year: 2023,
           borderColor: "#FF5752",
-          imageSrc: "/img/applead.png",
-          bio: "Expert in Flutter and native mobile app development."
+          imageSrc: "/img/applead2.png",
+          bio: "Expert in Flutter and native mobile app development.",
+          social: {
+            github: "https://github.com/roshan2708",
+            linkedin: "https://www.linkedin.com/in/roshan-singh-680b842a1?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+          }
         },
         {
-          role: "IOS DEVELOPER",
-          name: "Priya Jain",
+          role: "App Tech Member",
+          name: "Koyal Das",
           year: 2024,
           borderColor: "#FF5752",
-          imageSrc: "/img/applead.png",
-          bio: "Experienced iOS developer with a focus on building high-performance apps."
-        }
+          imageSrc: "/img/applead3.png",
+          bio: "Experienced iOS developer with a focus on building high-performance apps.",
+          social: {
+            github: "https://github.com/KoyalDas08",
+            linkedin: "https://www.linkedin.com/in/koyal-das-14a47132a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+          }
+        },
+        
       ]
     },
     {
       category: "ML/Ops",
       members: [
         {
-          role: "ML ENGINEER",
+          role: "ML Tech Member",
           name: "Arjun Sharma",
           year: 2023,
           borderColor: "#C46DD9",

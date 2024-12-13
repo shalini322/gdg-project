@@ -50,7 +50,7 @@ export const MemberCategory: React.FC<MemberCategoryProps> = ({
             className="animate-card member-card cursor-pointer group relative transform transition-all duration-300 hover:z-10"
             onClick={() => setExpandedMember(member)}
           >
-            <div className="relative w-[250px] h-[250px] mx-auto">
+            <div className="relative w-[250px] h-[320px] mx-auto">
               <ImageFrame
                 role={member.role}
                 name={member.name}

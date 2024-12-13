@@ -177,8 +177,8 @@ export default function EventsPage() {
           <div className="absolute bottom-40 right-20 w-36 h-36 bg-gradient-to-r from-yellow-500 to-red-500/[0.03] rounded-full blur-xl" />
 
           {/* 3D shapes like "containers" */}
-          <div className="absolute top-10 left-1/4 w-64 h-64 bg-white/[0.1] shadow-2xl rounded-xl transform rotate-12 -z-10" />
-          <div className="absolute bottom-20 right-1/4 w-64 h-64 bg-white/[0.1] shadow-2xl rounded-xl transform rotate-12 -z-10" />
+          {/* <div className="absolute top-10 left-1/4 w-64 h-64 bg-white/[0.1] shadow-2xl rounded-xl transform rotate-12 -z-10" />
+          <div className="absolute bottom-20 right-1/4 w-64 h-64 bg-white/[0.1] shadow-2xl rounded-xl transform rotate-12 -z-10" /> */}
         </div>
       </div>
 

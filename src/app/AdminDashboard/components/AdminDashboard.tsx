@@ -5,14 +5,15 @@ import {
   LayoutDashboard,
   Users,
   Calendar,
-  Award,
+  Sparkles ,
   Settings,
   Menu
 } from 'lucide-react';
 import Sidebar from '@/app/AdminDashboard/components/Sidebar';
 import UserManagement from '@/app/AdminDashboard/components/UserManagement';
 import EventManagement from '@/app/AdminDashboard/components/EventManagement';
-import CertificateGenerator from '@/app/AdminDashboard/components/CertificateGenerator';
+import TestimonialManagement from '@/app/AdminDashboard/components/TestimonialManagement';
+
 import DashboardHome from '@/app/AdminDashboard/components/DashboardHome';
 import Navbar from '@/components/Navbar';
 
@@ -21,7 +22,7 @@ export enum DashboardSection {
   HOME = 'Home',
   USERS = 'Users',
   EVENTS = 'Events',
-  CERTIFICATES = 'Certificates',
+  TESTIMONIALS = 'Testimonials',
   SETTINGS = 'Settings'
 }
 
@@ -39,10 +40,12 @@ export const DASHBOARD_NAV_ITEMS = [
     section: DashboardSection.EVENTS,
     icon: Calendar
   },
+
   {
-    section: DashboardSection.CERTIFICATES,
-    icon: Award
+    section: DashboardSection.TESTIMONIALS,
+    icon: Sparkles
   },
+  
   {
     section: DashboardSection.SETTINGS,
     icon: Settings
@@ -62,8 +65,8 @@ const AdminDashboard: React.FC = () => {
         return <UserManagement />;
       case DashboardSection.EVENTS:
         return <EventManagement />;
-      case DashboardSection.CERTIFICATES:
-        return <CertificateGenerator />;
+        case DashboardSection.TESTIMONIALS:
+          return <TestimonialManagement />;
       case DashboardSection.SETTINGS:
         return <div>Settings Page</div>;
       default:
