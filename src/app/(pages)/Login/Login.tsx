@@ -1,3 +1,4 @@
+import SignInWithGoogle from "@/components/SignInWithGoogle";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import React from "react";
@@ -74,16 +75,7 @@ const Login: React.FC = () => {
               Sign in with Github
             </Button>
 
-            <Button className="flex items-center justify-center w-full border border-gray-300 hover:bg-gray-100 dark:border-gray-600 py-2 px-4 rounded-lg mt-10 bg-white dark:bg-gray-700 text-black dark:text-white transition-colors duration-300">
-              <Image
-                height={100}
-                width={100}
-                src="/svg/google.svg"
-                alt="Google"
-                className="h-5 w-5 mr-2 bg-white dark:bg-transparent"
-              />
-              Sign in with Google
-            </Button>
+            <SignInWithGoogle />
           </div>
         </div>
         {/* Right Section */}
