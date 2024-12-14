@@ -37,7 +37,9 @@ const EventCard: React.FC<EventCardProps> = ({
       <p className="text-sm font-medium mb-2">{date}</p>
 
       {/* Event Type */}
-      <p className="text-base font-semibold text-[#4A148C] dark:text-[#b97ee7] mb-1">{type}</p>
+      <p className="text-base font-semibold text-[#4A148C] dark:text-[#b97ee7] mb-1">
+        {type}
+      </p>
 
       {/* Event Title */}
       <h3 className="text-lg font-bold mb-2 underline">{title}</h3>

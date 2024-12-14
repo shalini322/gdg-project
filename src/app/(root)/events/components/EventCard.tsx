@@ -1,8 +1,8 @@
-'use client';
-import React, { useRef, useEffect } from 'react';
-import { gsap } from 'gsap';
-import { EventType, EventCategory } from '@/app/(root)/events/types';
-import { Calendar, MapPin,  ArrowRight } from 'lucide-react';
+"use client";
+import React, { useRef, useEffect } from "react";
+import { gsap } from "gsap";
+import { EventType, EventCategory } from "@/app/(root)/events/types";
+import { Calendar, MapPin, ArrowRight } from "lucide-react";
 
 interface EventCardProps {
   event: EventType;
@@ -18,7 +18,7 @@ const EventCard: React.FC<EventCardProps> = ({ event, category }) => {
 
     // Disable any transform animations from parent
     gsap.set(card, {
-      clearProps: "transform"
+      clearProps: "transform",
     });
 
     // Simple hover animation
@@ -26,21 +26,21 @@ const EventCard: React.FC<EventCardProps> = ({ event, category }) => {
       y: -8,
       duration: 0.3,
       ease: "power2.out",
-      boxShadow: "0 20px 30px rgba(0,0,0,0.2)"
+      boxShadow: "0 20px 30px rgba(0,0,0,0.2)",
     };
 
     const leaveAnimation = {
       y: 0,
       duration: 0.3,
       ease: "power2.out",
-      boxShadow: "0 10px 20px rgba(0,0,0,0.1)"
+      boxShadow: "0 10px 20px rgba(0,0,0,0.1)",
     };
 
-    card.addEventListener('mouseenter', () => {
+    card.addEventListener("mouseenter", () => {
       gsap.to(card, enterAnimation);
     });
 
-    card.addEventListener('mouseleave', () => {
+    card.addEventListener("mouseleave", () => {
       gsap.to(card, leaveAnimation);
     });
 
@@ -51,9 +51,9 @@ const EventCard: React.FC<EventCardProps> = ({ event, category }) => {
   }, []);
 
   return (
-    <div 
+    <div
       ref={cardRef}
-      style={{ transform: 'translate3d(0, 0, 0)' }} // Force GPU acceleration
+      style={{ transform: "translate3d(0, 0, 0)" }} // Force GPU acceleration
       className="relative 
         bg-white dark:bg-black 
         rounded-2xl 
@@ -71,15 +71,17 @@ const EventCard: React.FC<EventCardProps> = ({ event, category }) => {
           className="w-full h-full object-cover brightness-100 dark:brightness-90"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/40"></div>
-        
-        {category === 'past' && (
-          <div className="absolute top-4 right-4 
+
+        {category === "past" && (
+          <div
+            className="absolute top-4 right-4 
             bg-red-500/80 
             backdrop-blur-sm 
             px-3 py-1 
             rounded-full 
             text-white 
-            font-medium">
+            font-medium"
+          >
             Completed
           </div>
         )}
@@ -90,15 +92,15 @@ const EventCard: React.FC<EventCardProps> = ({ event, category }) => {
         <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
           {event.title}
         </h3>
-        
+
         <div className="space-y-2 text-gray-600 dark:text-gray-400">
           <div className="flex items-center">
             <Calendar className="mr-3 w-5 h-5 text-blue-500" />
             <span className="text-sm">
-              {new Date(event.date).toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
+              {new Date(event.date).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
               })}
             </span>
           </div>
@@ -113,7 +115,7 @@ const EventCard: React.FC<EventCardProps> = ({ event, category }) => {
         </p>
 
         <div className="flex justify-between items-center">
-          {category === 'upcoming' && (
+          {category === "upcoming" && (
             <a
               href={event.registrationLink}
               target="_blank"
@@ -130,7 +132,7 @@ const EventCard: React.FC<EventCardProps> = ({ event, category }) => {
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </a>
           )}
-          
+
           <span className="text-xs text-gray-500 dark:text-gray-600">
             Event ID: {event.id}
           </span>
