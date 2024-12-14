@@ -11,7 +11,7 @@ export const OrganizerCard: React.FC<{ member: Member }> = ({ member }) => {
   }, []);
 
   return (
-    <div 
+    <div
       ref={cardRef}
       className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 
                  rounded-2xl shadow-xl p-8 mb-12 mx-auto max-w-4xl border border-gray-200 

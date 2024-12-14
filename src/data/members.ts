@@ -10,7 +10,7 @@ export interface Member {
     linkedin?: string;
     twitter?: string;
   };
-  isOrganizer?: boolean; 
+  isOrganizer?: boolean;
 }
 
 export const memberCategories = {
@@ -28,26 +28,64 @@ export const memberCategories = {
           social: {
             github: "https://github.com/deepakkumar",
             linkedin: "https://linkedin.com/in/deepakkumar",
-            twitter: "https://twitter.com/deepakkumar"
-          }
+            twitter: "https://twitter.com/deepakkumar",
+          },
         },
         {
-          role: "FRONTEND DEVELOPER",
-          name: "Raj Patel",
+          role: "Backend Web Developer",
+          name: "Rahul Kumar",
           year: 2022,
           borderColor: "#79F77D",
-          imageSrc: "/img/webdev.png",
-          bio: "Passionate frontend developer specializing in React and Next.js."
+          imageSrc: "/img/webdev2.png",
+          bio: "Passionate frontend developer specializing in React and Next.js.",
+          social: {
+            github: "https://github.com/deepakkumar",
+            linkedin: "https://linkedin.com/in/deepakkumar",
+            twitter: "https://twitter.com/deepakkumar",
+          },
+        },
+
+        {
+          role: "Web Developer",
+          name: "Ayushmaan Rana",
+          year: 2022,
+          borderColor: "#79F77D",
+          imageSrc: "/img/webdev5.png",
+          bio: "Passionate frontend developer specializing in React and Next.js.",
+          social: {
+            github: "https://github.com/ranaayushman",
+            linkedin: "https://www.linkedin.com/in/ayushman-rana-1478b32a5/",
+            twitter: "https://twitter.com/ranaayushman",
+          },
+        },
+
+        {
+          role: "WEB DEVELOPER",
+          name: "Ishan Tiwari",
+          year: 2023,
+          borderColor: "#79F77D",
+          imageSrc: "/img/webdev3.png",
+          bio: "Experienced backend developer with expertise in Node.js and MongoDB.",
+          social: {
+            github: "https://github.com/deepakkumar",
+            linkedin: "https://linkedin.com/in/deepakkumar",
+            twitter: "https://twitter.com/deepakkumar",
+          },
         },
         {
-          role: "BACKEND DEVELOPER",
-          name: "Neha Gupta",
-          year: 2021,
+          role: "WEB DEVELOPER",
+          name: "Abhishek Kumar",
+          year: 2024,
           borderColor: "#79F77D",
-          imageSrc: "/img/webdev.png",
-          bio: "Experienced backend developer with expertise in Node.js and MongoDB."
-        }
-      ]
+          imageSrc: "/img/webdev4.png",
+          bio: "Frontend Web Developer with expertise in React JS and animation Library",
+          social: {
+            github: "https://github.com/misanthropic-codes",
+            linkedin: "https://linkedin.com/in/abhishek-codes",
+            twitter: "https://twitter.com/misanthropic_12",
+          },
+        },
+      ],
     },
     {
       category: "App Developers",
@@ -60,38 +98,49 @@ export const memberCategories = {
           imageSrc: "/img/applead.png",
           bio: "Mobile App Development Lead specializing in cross-platform development.",
           social: {
-            github: "https://github.com/chinmayverma",
-            linkedin: "https://linkedin.com/in/chinmayverma"
-          }
+            github: "https://github.com/Chinmayverma1602",
+            linkedin:
+              "https://www.linkedin.com/in/chinmay-verma-90353921b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+          },
         },
         {
-          role: "MOBILE DEVELOPER",
-          name: "Ankit Singh",
-          year: 2021,
+          role: "App Developer",
+          name: "Roshan Singh",
+          year: 2023,
           borderColor: "#FF5752",
-          imageSrc: "/img/applead.png",
-          bio: "Expert in Flutter and native mobile app development."
+          imageSrc: "/img/applead2.png",
+          bio: "Expert in Flutter and native mobile app development.",
+          social: {
+            github: "https://github.com/roshan2708",
+            linkedin:
+              "https://www.linkedin.com/in/roshan-singh-680b842a1?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+          },
         },
         {
-          role: "IOS DEVELOPER",
-          name: "Priya Jain",
+          role: "App Tech Member",
+          name: "Koyal Das",
           year: 2024,
           borderColor: "#FF5752",
-          imageSrc: "/img/applead.png",
-          bio: "Experienced iOS developer with a focus on building high-performance apps."
-        }
-      ]
+          imageSrc: "/img/applead3.png",
+          bio: "Experienced iOS developer with a focus on building high-performance apps.",
+          social: {
+            github: "https://github.com/KoyalDas08",
+            linkedin:
+              "https://www.linkedin.com/in/koyal-das-14a47132a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+          },
+        },
+      ],
     },
     {
       category: "ML/Ops",
       members: [
         {
-          role: "ML ENGINEER",
+          role: "ML Tech Member",
           name: "Arjun Sharma",
           year: 2023,
           borderColor: "#C46DD9",
           imageSrc: "/img/mlops.png",
-          bio: "Skilled in developing and deploying machine learning models at scale."
+          bio: "Skilled in developing and deploying machine learning models at scale.",
         },
         {
           role: "DATA SCIENTIST",
@@ -99,7 +148,7 @@ export const memberCategories = {
           year: 2022,
           borderColor: "#C46DD9",
           imageSrc: "/img/mlops.png",
-          bio: "Leverages data and analytics to uncover valuable business insights."
+          bio: "Leverages data and analytics to uncover valuable business insights.",
         },
         {
           role: "DEVOPS ENGINEER",
@@ -107,10 +156,10 @@ export const memberCategories = {
           year: 2021,
           borderColor: "#C46DD9",
           imageSrc: "/img/mlops.png",
-          bio: "Expertise in automating and optimizing the software delivery process."
-        }
-      ]
-    }
+          bio: "Expertise in automating and optimizing the software delivery process.",
+        },
+      ],
+    },
   ],
   "Media Team": [
     {
@@ -124,8 +173,8 @@ export const memberCategories = {
           imageSrc: "/img/webdev.png",
           bio: "Creative graphic designer with a passion for visual storytelling.",
           social: {
-            linkedin: "https://linkedin.com/in/ananyasingh"
-          }
+            linkedin: "https://linkedin.com/in/ananyasingh",
+          },
         },
         {
           role: "UI/UX DESIGNER",
@@ -133,7 +182,7 @@ export const memberCategories = {
           year: 2022,
           borderColor: "#7E9EFF",
           imageSrc: "/img/webdev.png",
-          bio: "UI/UX designer creating intuitive and engaging user experiences."
+          bio: "UI/UX designer creating intuitive and engaging user experiences.",
         },
         {
           role: "MOTION DESIGNER",
@@ -141,9 +190,9 @@ export const memberCategories = {
           year: 2023,
           borderColor: "#7E9EFF",
           imageSrc: "/img/webdev.png",
-          bio: "Specializes in creating dynamic and visually captivating motion graphics."
-        }
-      ]
+          bio: "Specializes in creating dynamic and visually captivating motion graphics.",
+        },
+      ],
     },
     {
       category: "Video Editors",
@@ -154,7 +203,7 @@ export const memberCategories = {
           year: 2022,
           borderColor: "#FFB6C1",
           imageSrc: "/img/mediadep.png",
-          bio: "Expert in video editing and post-production techniques."
+          bio: "Expert in video editing and post-production techniques.",
         },
         {
           role: "CONTENT CREATOR",
@@ -162,9 +211,9 @@ export const memberCategories = {
           year: 2023,
           borderColor: "#FFB6C1",
           imageSrc: "/img/mediadep.png",
-          bio: "Skilled in creating engaging and visually appealing content."
-        }
-      ]
+          bio: "Skilled in creating engaging and visually appealing content.",
+        },
+      ],
     },
     {
       category: "Content Writers",
@@ -178,8 +227,8 @@ export const memberCategories = {
           bio: "Versatile content writer and communication strategist.",
           social: {
             linkedin: "https://linkedin.com/in/rahulsharma",
-            twitter: "https://twitter.com/rahulsharma"
-          }
+            twitter: "https://twitter.com/rahulsharma",
+          },
         },
         {
           role: "COPYWRITER",
@@ -187,9 +236,9 @@ export const memberCategories = {
           year: 2023,
           borderColor: "#FFD700",
           imageSrc: "/img/webdev.png",
-          bio: "Adept at creating compelling and persuasive copy for various platforms."
-        }
-      ]
+          bio: "Adept at creating compelling and persuasive copy for various platforms.",
+        },
+      ],
     },
     {
       category: "Photographers",
@@ -200,7 +249,7 @@ export const memberCategories = {
           year: 2021,
           borderColor: "#8B4513",
           imageSrc: "/img/mediadep.png",
-          bio: "Skilled in capturing visually stunning and captivating photographs."
+          bio: "Skilled in capturing visually stunning and captivating photographs.",
         },
         {
           role: "VIDEOGRAPHER",
@@ -208,10 +257,10 @@ export const memberCategories = {
           year: 2024,
           borderColor: "#8B4513",
           imageSrc: "/img/mediadep.png",
-          bio: "Expertise in creating high-quality video content for various mediums."
-        }
-      ]
-    }
+          bio: "Expertise in creating high-quality video content for various mediums.",
+        },
+      ],
+    },
   ],
   "PR Team": [
     {
@@ -220,7 +269,7 @@ export const memberCategories = {
       year: 2023,
       borderColor: "#FFD700",
       imageSrc: "/img/webdev.png",
-      bio: "Public relations expert with extensive media networking skills."
+      bio: "Public relations expert with extensive media networking skills.",
     },
     {
       role: "SOCIAL MEDIA MANAGER",
@@ -228,7 +277,7 @@ export const memberCategories = {
       year: 2021,
       borderColor: "#FFD700",
       imageSrc: "/img/webdev.png",
-      bio: "Experienced in developing and executing social media strategies."
+      bio: "Experienced in developing and executing social media strategies.",
     },
     {
       role: "CONTENT STRATEGIST",
@@ -236,11 +285,10 @@ export const memberCategories = {
       year: 2024,
       borderColor: "#FFD700",
       imageSrc: "/img/webdev.png",
-      bio: "Specializes in crafting content that aligns with business goals."
-    }
+      bio: "Specializes in crafting content that aligns with business goals.",
+    },
   ],
   "Core Team": [
-
     {
       role: "GDG ON CAMPUS ORGANIZER",
       name: "Rishbh Kumar",
@@ -251,9 +299,9 @@ export const memberCategories = {
       social: {
         github: "https://github.com/rishavraj",
         linkedin: "https://linkedin.com/in/rishavraj",
-        twitter: "https://twitter.com/rishavraj"
+        twitter: "https://twitter.com/rishavraj",
       },
-      isOrganizer: true
+      isOrganizer: true,
     },
 
     {
@@ -266,12 +314,10 @@ export const memberCategories = {
       social: {
         github: "https://github.com/deepakkumar",
         linkedin: "https://linkedin.com/in/deepakkumar",
-        twitter: "https://twitter.com/deepakkumar"
-      }
+        twitter: "https://twitter.com/deepakkumar",
+      },
     },
 
-   
-    
     {
       role: "APP DEVELOPMENT LEAD",
       name: "Chinmay Verma",
@@ -281,8 +327,8 @@ export const memberCategories = {
       bio: "Mobile App Development Lead specializing in cross-platform development.",
       social: {
         github: "https://github.com/chinmayverma",
-        linkedin: "https://linkedin.com/in/chinmayverma"
-      }
+        linkedin: "https://linkedin.com/in/chinmayverma",
+      },
     },
     {
       role: "GRAPHIC DESIGN LEAD",
@@ -292,8 +338,8 @@ export const memberCategories = {
       imageSrc: "/img/webdev.png",
       bio: "Creative graphic design lead with a passion for visual storytelling.",
       social: {
-        linkedin: "https://linkedin.com/in/ananyasingh"
-      }
+        linkedin: "https://linkedin.com/in/ananyasingh",
+      },
     },
     {
       role: "PR LEAD",
@@ -301,9 +347,9 @@ export const memberCategories = {
       year: 2023,
       borderColor: "#FFD700",
       imageSrc: "/img/webdev.png",
-      bio: "Public relations expert and lead with extensive media networking skills."
-    }
-  ]
+      bio: "Public relations expert and lead with extensive media networking skills.",
+    },
+  ],
 };
 
 export const categoryColors = {
@@ -313,7 +359,7 @@ export const categoryColors = {
   "Graphics Designers": "#7E9EFF",
   "Video Editors": "#FFB6C1",
   "Content Writers": "#FFD700",
-  "Photographers": "#8B4513",
+  Photographers: "#8B4513",
   "PR Team": "#FFD700",
-  "Core Team": "#FFFFFF"
+  "Core Team": "#FFFFFF",
 };
