@@ -33,23 +33,24 @@ const ImageFrame: React.FC<ImageFrameProps> = ({
 
     // GSAP hover animation setup
     const tl = gsap.timeline({ paused: true });
-    
+
     tl.to(frame, {
       scale: 1.05,
-      boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1)",
+      boxShadow:
+        "0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1)",
       duration: 0.3,
-      ease: "power2.out"
+      ease: "power2.out",
     });
 
     // Hover event handlers
     const handleMouseEnter = () => {
       tl.play();
-      
-      const otherFrames = document.querySelectorAll('.image-frame:not(:hover)');
+
+      const otherFrames = document.querySelectorAll(".image-frame:not(:hover)");
       gsap.to(otherFrames, {
-        filter: 'blur(3px) brightness(0.7)',
+        filter: "blur(3px) brightness(0.7)",
         duration: 0.3,
-        ease: "power2.out"
+        ease: "power2.out",
       });
 
       onMouseEnter?.();
@@ -57,12 +58,12 @@ const ImageFrame: React.FC<ImageFrameProps> = ({
 
     const handleMouseLeave = () => {
       tl.reverse();
-      
-      const otherFrames = document.querySelectorAll('.image-frame');
+
+      const otherFrames = document.querySelectorAll(".image-frame");
       gsap.to(otherFrames, {
-        filter: 'blur(0px) brightness(1)',
+        filter: "blur(0px) brightness(1)",
         duration: 0.3,
-        ease: "power2.out"
+        ease: "power2.out",
       });
 
       onMouseLeave?.();
@@ -74,27 +75,27 @@ const ImageFrame: React.FC<ImageFrameProps> = ({
     };
 
     // Add event listeners
-    frame.addEventListener('mouseenter', handleMouseEnter);
-    frame.addEventListener('mouseleave', handleMouseLeave);
-    frame.addEventListener('click', handleClick);
+    frame.addEventListener("mouseenter", handleMouseEnter);
+    frame.addEventListener("mouseleave", handleMouseLeave);
+    frame.addEventListener("click", handleClick);
 
     // Cleanup
     return () => {
-      frame.removeEventListener('mouseenter', handleMouseEnter);
-      frame.removeEventListener('mouseleave', handleMouseLeave);
-      frame.removeEventListener('click', handleClick);
+      frame.removeEventListener("mouseenter", handleMouseEnter);
+      frame.removeEventListener("mouseleave", handleMouseLeave);
+      frame.removeEventListener("click", handleClick);
     };
   }, [onMouseEnter, onMouseLeave, onClick]);
 
   function getContrastYIQ(hexcolor: string) {
     hexcolor = hexcolor.replace("#", "");
-    
+
     const r = parseInt(hexcolor.substr(0, 2), 16);
     const g = parseInt(hexcolor.substr(2, 2), 16);
     const b = parseInt(hexcolor.substr(4, 2), 16);
-    
+
     const yiq = (r * 299 + g * 587 + b * 114) / 1000;
-    
+
     return yiq >= 128 ? "black" : "white";
   }
 
@@ -121,11 +122,11 @@ const ImageFrame: React.FC<ImageFrameProps> = ({
           height={200}
         />
       </div>
-      
+
       {/* Text */}
       <div
         className={clsx(
-          "text-center text-black px-4 w-full h-24 pt-4", 
+          "text-center text-black px-4 w-full h-24 pt-4",
           rest.className
         )}
         style={{

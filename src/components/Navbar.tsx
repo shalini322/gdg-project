@@ -158,7 +158,9 @@ const Navbar = () => {
   const profileDropdownClasses = useMemo(() => {
     return `
       absolute right-0 mt-2 w-48 rounded-xl overflow-hidden
-      ${isDarkMode ? "bg-black/90 border border-gray-800" : "bg-white shadow-lg"}
+      ${
+        isDarkMode ? "bg-black/90 border border-gray-800" : "bg-white shadow-lg"
+      }
       transform transition-all duration-300 ease-in-out
       ${
         isProfileOpen
@@ -254,7 +256,9 @@ const Navbar = () => {
                 {/* Profile Dropdown Menu */}
                 <div className={profileDropdownClasses}>
                   <button
-                    onClick={() => {/* Add your signin logic */}}
+                    onClick={() => {
+                      /* Add your signin logic */
+                    }}
                     className={`
                       block w-full px-4 py-2 text-sm text-left
                       ${
@@ -267,7 +271,9 @@ const Navbar = () => {
                     Sign In
                   </button>
                   <button
-                    onClick={() => {/* Add your signup logic */}}
+                    onClick={() => {
+                      /* Add your signup logic */
+                    }}
                     className={`
                       block w-full px-4 py-2 text-sm text-left
                       ${
@@ -311,7 +317,11 @@ const Navbar = () => {
               `}
               aria-label="Profile menu"
             >
-              <User className={`h-5 w-5 ${isDarkMode ? "text-white" : "text-black"}`} />
+              <User
+                className={`h-5 w-5 ${
+                  isDarkMode ? "text-white" : "text-black"
+                }`}
+              />
             </button>
 
             {/* Mobile Menu Toggle */}
@@ -393,7 +403,9 @@ const Navbar = () => {
         >
           <div className={mobileMenuBackgroundClasses}>
             <button
-              onClick={() => {/* Add your signin logic */}}
+              onClick={() => {
+                /* Add your signin logic */
+              }}
               className={`
                 block w-full px-4 py-3 rounded-xl text-base font-medium
                 transition-all duration-300 mb-2
@@ -407,7 +419,9 @@ const Navbar = () => {
               Sign In
             </button>
             <button
-              onClick={() => {/* Add your signup logic */}}
+              onClick={() => {
+                /* Add your signup logic */
+              }}
               className={`
                 block w-full px-4 py-3 rounded-xl text-base font-medium
                 transition-all duration-300

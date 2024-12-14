@@ -1,59 +1,61 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   LayoutDashboard,
   Users,
   Calendar,
-  Sparkles ,
+  Sparkles,
   Settings,
-  Menu
-} from 'lucide-react';
-import Sidebar from '@/app/AdminDashboard/components/Sidebar';
-import UserManagement from '@/app/AdminDashboard/components/UserManagement';
-import EventManagement from '@/app/AdminDashboard/components/EventManagement';
-import TestimonialManagement from '@/app/AdminDashboard/components/TestimonialManagement';
+  Menu,
+} from "lucide-react";
+import Sidebar from "@/app/admin/components/Sidebar";
+import UserManagement from "@/app/admin/components/UserManagement";
+import EventManagement from "@/app/admin/components/EventManagement";
+import TestimonialManagement from "@/app/admin/components/TestimonialManagement";
 
-import DashboardHome from '@/app/AdminDashboard/components/DashboardHome';
-import Navbar from '@/components/Navbar';
+import DashboardHome from "@/app/admin/components/DashboardHome";
+import Navbar from "@/components/Navbar";
 
 // Enum for dashboard sections
 export enum DashboardSection {
-  HOME = 'Home',
-  USERS = 'Users',
-  EVENTS = 'Events',
-  TESTIMONIALS = 'Testimonials',
-  SETTINGS = 'Settings'
+  HOME = "Home",
+  USERS = "Users",
+  EVENTS = "Events",
+  TESTIMONIALS = "Testimonials",
+  SETTINGS = "Settings",
 }
 
 // Main dashboard navigation items
 export const DASHBOARD_NAV_ITEMS = [
   {
     section: DashboardSection.HOME,
-    icon: LayoutDashboard
+    icon: LayoutDashboard,
   },
   {
     section: DashboardSection.USERS,
-    icon: Users
+    icon: Users,
   },
   {
     section: DashboardSection.EVENTS,
-    icon: Calendar
+    icon: Calendar,
   },
 
   {
     section: DashboardSection.TESTIMONIALS,
-    icon: Sparkles
+    icon: Sparkles,
   },
-  
+
   {
     section: DashboardSection.SETTINGS,
-    icon: Settings
-  }
+    icon: Settings,
+  },
 ];
 
 const AdminDashboard: React.FC = () => {
-  const [activeSection, setActiveSection] = useState<DashboardSection>(DashboardSection.HOME);
+  const [activeSection, setActiveSection] = useState<DashboardSection>(
+    DashboardSection.HOME
+  );
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   // Render active section component
@@ -65,8 +67,8 @@ const AdminDashboard: React.FC = () => {
         return <UserManagement />;
       case DashboardSection.EVENTS:
         return <EventManagement />;
-        case DashboardSection.TESTIMONIALS:
-          return <TestimonialManagement />;
+      case DashboardSection.TESTIMONIALS:
+        return <TestimonialManagement />;
       case DashboardSection.SETTINGS:
         return <div>Settings Page</div>;
       default:
@@ -86,8 +88,10 @@ const AdminDashboard: React.FC = () => {
       />
 
       {/* Main Content Area */}
-      <main className={`flex-1 overflow-x-hidden overflow-y-auto transition-all duration-300 ease-in-out 
-        ${isSidebarOpen ? 'ml-64' : 'ml-20'}`}>
+      <main
+        className={`flex-1 overflow-x-hidden overflow-y-auto transition-all duration-300 ease-in-out 
+        ${isSidebarOpen ? "ml-64" : "ml-20"}`}
+      >
         {/* Top Navigation */}
         <nav className="sticky top-0 z-40 py-10 flex items-center justify-between p-4 bg-white dark:bg-darkgray shadow-sm">
           <button
@@ -100,9 +104,7 @@ const AdminDashboard: React.FC = () => {
         </nav>
 
         {/* Dynamic Content Rendering */}
-        <div className="p-6">
-          {renderActiveSection()}
-        </div>
+        <div className="p-6">{renderActiveSection()}</div>
       </main>
     </div>
   );

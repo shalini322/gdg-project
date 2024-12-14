@@ -1,10 +1,5 @@
-import React, { useState } from 'react';
-import { 
-  Users, 
-  Calendar, 
-  UserPlus, 
-  Activity 
-} from 'lucide-react';
+import React, { useState } from "react";
+import { Users, Calendar, UserPlus, Activity } from "lucide-react";
 
 // Dummy data for initial implementation
 const dummyData = {
@@ -13,29 +8,33 @@ const dummyData = {
   upcomingEvents: 12,
   activeMembers: 945,
   userGrowth: [
-    { month: 'Jan', users: 800 },
-    { month: 'Feb', users: 920 },
-    { month: 'Mar', users: 1050 },
-    { month: 'Apr', users: 1150 },
-    { month: 'May', users: 1250 }
-  ]
+    { month: "Jan", users: 800 },
+    { month: "Feb", users: 920 },
+    { month: "Mar", users: 1050 },
+    { month: "Apr", users: 1150 },
+    { month: "May", users: 1250 },
+  ],
 };
 
 // Custom Bar Chart Component
-const BarChart: React.FC<{ data: { month: string; users: number }[] }> = ({ data }) => {
-  const maxUsers = Math.max(...data.map(item => item.users));
-  
+const BarChart: React.FC<{ data: { month: string; users: number }[] }> = ({
+  data,
+}) => {
+  const maxUsers = Math.max(...data.map((item) => item.users));
+
   return (
     <div className="flex items-center space-x-2 h-32">
       {data.map((item, index) => {
         const height = (item.users / maxUsers) * 100;
         return (
           <div key={index} className="flex flex-col items-center w-full">
-            <div 
-              className="bg-blue-500 dark:bg-blue-400 w-full transition-all duration-300 ease-in-out hover:opacity-80" 
+            <div
+              className="bg-blue-500 dark:bg-blue-400 w-full transition-all duration-300 ease-in-out hover:opacity-80"
               style={{ height: `${height}%` }}
             />
-            <span className="text-xs text-gray-600 dark:text-gray-300 mt-1">{item.month}</span>
+            <span className="text-xs text-gray-600 dark:text-gray-300 mt-1">
+              {item.month}
+            </span>
           </div>
         );
       })}
@@ -51,10 +50,10 @@ const StatCard: React.FC<{
   bgColor: string;
 }> = ({ icon, title, value, bgColor }) => {
   return (
-    <div className={`p-4 rounded-lg shadow-md flex items-center space-x-4 ${bgColor} text-white`}>
-      <div className="p-3 rounded-full bg-white/20">
-        {icon}
-      </div>
+    <div
+      className={`p-4 rounded-lg shadow-md flex items-center space-x-4 ${bgColor} text-white`}
+    >
+      <div className="p-3 rounded-full bg-white/20">{icon}</div>
       <div>
         <p className="text-sm opacity-75">{title}</p>
         <p className="text-2xl font-bold">{value.toLocaleString()}</p>
@@ -75,25 +74,25 @@ const AdminDashboard: React.FC = () => {
 
         {/* Stats Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          <StatCard 
+          <StatCard
             icon={<Users className="w-6 h-6" />}
             title="Total Users"
             value={userData.totalUsers}
             bgColor="bg-blue-600 dark:bg-blue-700"
           />
-          <StatCard 
+          <StatCard
             icon={<UserPlus className="w-6 h-6" />}
             title="New Users"
             value={userData.newUsers}
             bgColor="bg-green-600 dark:bg-green-700"
           />
-          <StatCard 
+          <StatCard
             icon={<Calendar className="w-6 h-6" />}
             title="Upcoming Events"
             value={userData.upcomingEvents}
             bgColor="bg-yellow-600 dark:bg-yellow-700"
           />
-          <StatCard 
+          <StatCard
             icon={<Activity className="w-6 h-6" />}
             title="Active Members"
             value={userData.activeMembers}
