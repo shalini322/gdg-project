@@ -240,7 +240,7 @@ const Navbar = () => {
                   <DropdownMenuLabel>My Account</DropdownMenuLabel>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem
-                    onSelect={() => router.push(`/${session.user?.username}`)}
+                    onSelect={() => router.push(`/user/${session.user?.id}`)}
                     className="cursor-pointer"
                   >
                     Profile
