@@ -10,8 +10,8 @@ export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(db),
   secret: process.env.NEXTAUTH_SECRET,
   session: {
-    strategy: "database", // Use database sessions instead of JWT
-    maxAge: 60 * 60 * 24 * 30, // Session expiry (30 days)
+    strategy: "database", 
+    maxAge: 60 * 60 * 24 * 30, 
   },
   providers: [
     GoogleProvider({
