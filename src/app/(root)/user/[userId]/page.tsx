@@ -15,14 +15,15 @@ const Page = async () => {
         Welcome
         {userId ? ` ${session?.user?.name || "User"}` : ""}
       </h1>
-      {userId && (
+      {userId && userId !== undefined ? (
         <div>
-          <p>User ID: {userId}</p>
+          <p>User ID: </p>
           <p>Name: {session?.user?.name}</p>
           <p>Email: {session?.user?.email}</p>
         </div>
+      ) : (
+        <p>Please log in to view your profile</p>
       )}
-      {!userId && <p>Please log in to view your profile</p>}
     </div>
   );
 };
