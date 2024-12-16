@@ -16,11 +16,11 @@ interface NestedMemberCategoryProps {
 
 export const NestedMemberCategory: React.FC<NestedMemberCategoryProps> = ({
   categoryName,
-  categoryData
+  categoryData,
 }) => {
   // Type guard to check if the data is nested
   const isNested = (data: Member[] | SubCategory[]): data is SubCategory[] => {
-    return data.length > 0 && 'category' in data[0];
+    return data.length > 0 && "category" in data[0];
   };
 
   if (isNested(categoryData)) {
@@ -31,7 +31,11 @@ export const NestedMemberCategory: React.FC<NestedMemberCategoryProps> = ({
             key={subCategory.category}
             category={subCategory.category}
             members={subCategory.members}
-            borderColor={categoryColors[subCategory.category as keyof typeof categoryColors] || "#000000"}
+            borderColor={
+              categoryColors[
+                subCategory.category as keyof typeof categoryColors
+              ] || "#000000"
+            }
           />
         ))}
       </div>
@@ -42,7 +46,9 @@ export const NestedMemberCategory: React.FC<NestedMemberCategoryProps> = ({
     <MemberCategory
       category={categoryName}
       members={categoryData}
-      borderColor={categoryColors[categoryName as keyof typeof categoryColors] || "#000000"}
+      borderColor={
+        categoryColors[categoryName as keyof typeof categoryColors] || "#000000"
+      }
     />
   );
 };

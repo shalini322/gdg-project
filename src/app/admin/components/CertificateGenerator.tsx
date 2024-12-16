@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState, useRef } from 'react';
-import { Download, Palette } from 'lucide-react';
-import html2canvas from 'html2canvas';
+import React, { useState, useRef } from "react";
+import { Download, Palette } from "lucide-react";
+import html2canvas from "html2canvas";
 
 // Certificate template interface
 interface CertificateTemplate {
@@ -16,25 +16,25 @@ interface CertificateTemplate {
 // Predefined certificate templates
 const CERTIFICATE_TEMPLATES: CertificateTemplate[] = [
   {
-    id: '1',
-    name: 'Modern Blue',
-    backgroundImage: '/img/image.png',
-    textColor: '#003366',
-    fontStyle: 'Roboto',
+    id: "1",
+    name: "Modern Blue",
+    backgroundImage: "/img/image.png",
+    textColor: "#003366",
+    fontStyle: "Roboto",
   },
   {
-    id: '2',
-    name: 'Elegant Gold',
-    backgroundImage: '/img/image.png',
-    textColor: '#8B6914',
-    fontStyle: 'Playfair Display',
+    id: "2",
+    name: "Elegant Gold",
+    backgroundImage: "/img/image.png",
+    textColor: "#8B6914",
+    fontStyle: "Playfair Display",
   },
   {
-    id: '3',
-    name: 'Minimalist White',
-    backgroundImage: '/img/image.png',
-    textColor: '#333333',
-    fontStyle: 'Montserrat',
+    id: "3",
+    name: "Minimalist White",
+    backgroundImage: "/img/image.png",
+    textColor: "#333333",
+    fontStyle: "Montserrat",
   },
 ];
 
@@ -42,8 +42,8 @@ const CertificateGenerator: React.FC = () => {
   const [selectedTemplate, setSelectedTemplate] = useState<CertificateTemplate>(
     CERTIFICATE_TEMPLATES[0]
   );
-  const [participantName, setParticipantName] = useState('');
-  const [eventName, setEventName] = useState('');
+  const [participantName, setParticipantName] = useState("");
+  const [eventName, setEventName] = useState("");
   const certificateRef = useRef<HTMLDivElement>(null);
 
   const handleDownloadCertificate = async () => {
@@ -52,7 +52,7 @@ const CertificateGenerator: React.FC = () => {
         scale: 2,
         useCORS: true,
       });
-      const link = document.createElement('a');
+      const link = document.createElement("a");
       link.download = `${participantName}_certificate.png`;
       link.href = canvas.toDataURL();
       link.click();
@@ -81,8 +81,8 @@ const CertificateGenerator: React.FC = () => {
                   onClick={() => setSelectedTemplate(template)}
                   className={`cursor-pointer p-3 rounded-lg flex items-center ${
                     selectedTemplate.id === template.id
-                      ? 'bg-blue-100 dark:bg-blue-900'
-                      : 'hover:bg-gray-200 dark:hover:bg-gray-700'
+                      ? "bg-blue-100 dark:bg-blue-900"
+                      : "hover:bg-gray-200 dark:hover:bg-gray-700"
                   }`}
                 >
                   <Palette className="mr-3 text-blue-600" />
@@ -144,8 +144,8 @@ const CertificateGenerator: React.FC = () => {
             className="w-full aspect-[3/2] relative overflow-hidden rounded-lg shadow-lg"
             style={{
               backgroundImage: `url(${selectedTemplate.backgroundImage})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
+              backgroundSize: "cover",
+              backgroundPosition: "center",
               fontFamily: selectedTemplate.fontStyle,
             }}
           >
@@ -166,7 +166,7 @@ const CertificateGenerator: React.FC = () => {
                 className="text-3xl font-semibold mb-4"
                 style={{ color: selectedTemplate.textColor }}
               >
-                {participantName || 'Participant Name'}
+                {participantName || "Participant Name"}
               </h2>
               <p
                 className="text-lg mb-2"
@@ -178,7 +178,7 @@ const CertificateGenerator: React.FC = () => {
                 className="text-2xl font-semibold"
                 style={{ color: selectedTemplate.textColor }}
               >
-                {eventName || 'Event Name'}
+                {eventName || "Event Name"}
               </h2>
               <p
                 className="text-base mt-4"

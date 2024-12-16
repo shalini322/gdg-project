@@ -11,10 +11,10 @@ interface MemberCategoryProps {
   borderColor: string;
 }
 
-export const MemberCategory: React.FC<MemberCategoryProps> = ({ 
-  category, 
-  members, 
-  borderColor 
+export const MemberCategory: React.FC<MemberCategoryProps> = ({
+  category,
+  members,
+  borderColor,
 }) => {
   const [expandedMember, setExpandedMember] = useState<Member | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -40,8 +40,8 @@ export const MemberCategory: React.FC<MemberCategoryProps> = ({
         <Computer className="text-blue-500" />
         {category}
       </h3>
-      <div 
-        ref={containerRef} 
+      <div
+        ref={containerRef}
         className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-6"
       >
         {members.map((member, index) => (
@@ -50,7 +50,7 @@ export const MemberCategory: React.FC<MemberCategoryProps> = ({
             className="animate-card member-card cursor-pointer group relative transform transition-all duration-300 hover:z-10"
             onClick={() => setExpandedMember(member)}
           >
-            <div className="relative w-[250px] h-[250px] mx-auto">
+            <div className="relative w-[250px] h-[320px] mx-auto">
               <ImageFrame
                 role={member.role}
                 name={member.name}
@@ -62,12 +62,12 @@ export const MemberCategory: React.FC<MemberCategoryProps> = ({
           </div>
         ))}
       </div>
-      
+
       {expandedMember && (
-        <ExpandedCard 
-          member={expandedMember} 
-          isOpen={!!expandedMember} 
-          onClose={() => setExpandedMember(null)} 
+        <ExpandedCard
+          member={expandedMember}
+          isOpen={!!expandedMember}
+          onClose={() => setExpandedMember(null)}
         />
       )}
     </div>

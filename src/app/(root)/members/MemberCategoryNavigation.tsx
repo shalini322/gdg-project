@@ -7,11 +7,9 @@ interface MemberCategoryNavigationProps {
   containerRef: React.RefObject<HTMLDivElement>;
 }
 
-export const MemberCategoryNavigation: React.FC<MemberCategoryNavigationProps> = ({ 
-  activeCategory, 
-  setActiveCategory, 
-  containerRef 
-}) => {
+export const MemberCategoryNavigation: React.FC<
+  MemberCategoryNavigationProps
+> = ({ activeCategory, setActiveCategory, containerRef }) => {
   const getCategoryIcon = React.useCallback((category: string) => {
     switch (category) {
       case "Tech Members":
@@ -27,16 +25,11 @@ export const MemberCategoryNavigation: React.FC<MemberCategoryNavigationProps> =
     }
   }, []);
 
-  const categories = [
-    "Tech Members", 
-    "Media Team", 
-    "PR Team", 
-    "Core Team"
-  ];
+  const categories = ["Tech Members", "Media Team", "PR Team", "Core Team"];
 
   return (
-    <div 
-      ref={containerRef} 
+    <div
+      ref={containerRef}
       className="flex flex-wrap justify-center gap-4 mb-12 px-4"
     >
       {categories.map((category) => (
@@ -46,9 +39,11 @@ export const MemberCategoryNavigation: React.FC<MemberCategoryNavigationProps> =
           className={`
             px-6 py-3 rounded-xl text-md font-semibold 
             transition-all duration-300 flex items-center gap-2
-            ${activeCategory === category 
-              ? 'bg-black text-white dark:bg-white dark:text-black shadow-lg' 
-              : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'}
+            ${
+              activeCategory === category
+                ? "bg-black text-white dark:bg-white dark:text-black shadow-lg"
+                : "bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
+            }
           `}
         >
           {getCategoryIcon(category)}
