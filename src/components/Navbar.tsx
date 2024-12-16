@@ -3,8 +3,20 @@
 import { useState, useEffect, useCallback, useMemo } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Moon, Sun, User } from "lucide-react";
+import { Moon, Sun, User, ChevronDown } from "lucide-react";
 import Image from "next/image";
+import { useSession, signOut } from "next-auth/react";
+import { useRouter } from "next/navigation";
+
+// Shadcn UI Imports
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 // Configuration for navigation links (memoized to prevent unnecessary re-renders)
 const NAV_LINKS = [
@@ -17,8 +29,10 @@ const NAV_LINKS = [
 ];
 
 const Navbar = () => {
+  const router = useRouter();
   // Use pathname hook
   const pathname = usePathname();
+  const { data: session } = useSession();
 
   // State management with useCallback to memoize state setters
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -154,6 +168,10 @@ const Navbar = () => {
     `;
   }, [isDarkMode, isMenuOpen]);
 
+  // Handle sign out with redirect
+  const handleSignOut = () => {
+    signOut({ callbackUrl: "/" });
+  };
   // Memoized profile dropdown classes
   const profileDropdownClasses = useMemo(() => {
     return `
@@ -360,7 +378,7 @@ const Navbar = () => {
               </div>
             </button>
           </div>
-        </div>
+         </div>
 
         {/* Mobile Navigation Menu */}
         <div
