@@ -17,7 +17,7 @@ const Page = async () => {
       </h1>
       {userId && userId !== undefined ? (
         <div>
-          <p>User ID: </p>
+          <p>User ID: {session.user?.id as string}</p>
           <p>Name: {session?.user?.name}</p>
           <p>Email: {session?.user?.email}</p>
         </div>
