@@ -53,3 +53,15 @@ model VerificationToken {
 
   @@unique([identifier, token])
 }
+
+model Member {
+  id          String    @id @default(cuid())
+  name        String
+  email       String    @unique
+  role        String
+  department  String
+  status      String    @default("ACTIVE")
+  joinDate    DateTime
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
